@@ -1,0 +1,62 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 789eb001ba0cbde75685ff23d32a8fa1344287f597ba563139b121c1fa5a74d2
+
+name:           Euler
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/mrkaye97/Euler#readme>
+homepage:       https://github.com/mrkaye97/Euler#readme
+bug-reports:    https://github.com/mrkaye97/Euler/issues
+author:         Matt Kaye
+maintainer:     mrkaye97@gmail.com
+copyright:      None
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/mrkaye97/Euler
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_Euler
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
+executable Euler-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_Euler
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Euler
+    , base >=4.7 && <5
+  default-language: Haskell2010
+
+test-suite Euler-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_Euler
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Euler
+    , base >=4.7 && <5
+  default-language: Haskell2010
