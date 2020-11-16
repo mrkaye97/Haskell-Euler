@@ -4,7 +4,7 @@
 -- 9699690 (since the prime factorization of whatever the solution is must incluse each of
 --  the primes between 1 and 20 at least once, and if any are included multiple times, then 
 --  the solution will be a multiple of 9699690)
-minimum_prime_factor = 9699690
+minimum_prime_factor_product = 2 * 3 * 5 * 7 * 11 * 13 * 17 * 19
 
 check :: Integer -> Integer -> Bool 
 check x 1 = True
@@ -15,9 +15,9 @@ check x n =
 calc :: Integer -> Integer
 calc x = 
     if check x 20 == True then x
-        else calc (x + minimum_prime_factor)
+        else calc (x + minimum_prime_factor_product)
 
 
 main = do
-    print(calc minimum_prime_factor)
+    print(calc minimum_prime_factor_product)
 
