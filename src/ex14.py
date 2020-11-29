@@ -9,7 +9,7 @@ for start in range(1, NUM_TO_CHECK):
     result = [start]
     n = copy.deepcopy(start)
     while n != 1:
-        if n in cache.keys():
+        if n in cache:
             result = result + (cache[n][1:])
             break
         elif n % 2 == 0:
@@ -22,6 +22,8 @@ for start in range(1, NUM_TO_CHECK):
     if len(result) > longest_len:
         longest_len = len(result)
         longest_start = start
+
+    cache[start] = result
 
 print(longest_start)
 print(longest_len)
