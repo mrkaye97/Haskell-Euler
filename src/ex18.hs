@@ -27,10 +27,9 @@ getEdge ix num = (ix, ix + (getRowNum ix 1) + num - 1, (triangle !! (ix-1)))
 
 
 main = do
-  print(genLNodes)
-  print(genLEdges)
+--  print(genLNodes)
+--  print(genLEdges)
 --  print(mygraph)
-  print(spLength 1 17 mygraph)
-  let topsorted = topsort' mygraph
+--  print(spLength 1 120 mygraph)
+  let topsorted = topsort mygraph
   print(topsorted)
-  print(shortestPathsBellmanFord mygraph)
