@@ -1,5 +1,8 @@
 -- First, this problem has a closed form solution, which we can get with the following formula:
--- NumPaths = (n * 2)! / (n! * n!)
+-- NumPaths = (n + n) choose (n) = (2 * n)! / (n! * n!).
+-- This is because the number of northeast lattice paths between (0,0) and (x,y) is equal to (x + y) choose (x).
+-- This also happens to be the central column of Pascal's triangle, which is pretty cool and makes sense because entry i in row j of
+-- Pascal's triangle is given by j choose i.
 -- Let's imagine we don't know about that. Then:
 -- this is another one of those DP problems
 -- for DP here, we'd like to start with one of three base cases:
