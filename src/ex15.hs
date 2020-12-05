@@ -1,3 +1,6 @@
+-- First, this problem has a closed form solution, which we can get with the following formula:
+-- NumPaths = (n * 2)! / (n! * n!)
+-- Let's imagine we don't know about that. Then:
 -- this is another one of those DP problems
 -- for DP here, we'd like to start with one of three base cases:
 -- Case I: 1x1 grid has 2 paths
