@@ -5,7 +5,12 @@ raw = "75 95 64 17 47 82 18 35 87 10 20 04 82 47 65 19 01 23 75 03 34 88 02 77 7
 triangle = map strToInt (splitOn " " raw)
 lhs = scanl (+) 1 [1,2..]
 rhs = drop 1 (scanl (+) 0 [1,2..])
-height = 15
+
+getHeight :: Int -> Int
+getHeight n =
+  if (length triangle) == (rhs !! n)
+    then n
+  else getHeight (n + 1)
 
 strToInt :: String -> Int
 strToInt x = read x :: Int
@@ -41,4 +46,5 @@ getMaxTotalSum depth tr =
   else getMaxTotalSum (depth - 1) (updateTriangle depth (getMaxChildSumByRow depth tr) tr)
 
 main = do
-  print(getMaxTotalSum (height - 1) triangle)
+  let height = getHeight 1
+  print(getMaxTotalSum (height) triangle)
