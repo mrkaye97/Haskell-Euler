@@ -41,4 +41,4 @@ getMaxTotalSum depth tr =
   else getMaxTotalSum (depth - 1) (updateTriangle depth (getMaxChildSumByRow depth tr) tr)
 
 main = do
-  print(getMaxTotalSum 14 triangle)
+  print(getMaxTotalSum (height - 1) triangle)
