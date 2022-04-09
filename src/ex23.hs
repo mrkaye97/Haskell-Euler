@@ -18,5 +18,5 @@ isNotSumOfTwoAbundant n =
     possibilities = map (\x -> n - x) eligibleAbundant
 
 main = do
-  let sums = sum (filter isNotSumOfTwoAbundant [1..1000])
+  let sums = sum (filter isNotSumOfTwoAbundant [1..28123])
   print(sums)
