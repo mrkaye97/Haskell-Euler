@@ -5,10 +5,7 @@ isDividedBy num den = (num `mod` den) == 0
 dividesN n = isDividedBy n
 properDivisors n = filter (dividesN n) [1..(n-1)]
 properDivisorSum n = (sum . properDivisors) n
-
-isPerfect n = n == properDivisorSum n
 isAbundant n = n < properDivisorSum n
-isDeficient n = n > properDivisorSum n
 
 isNotSumOfTwoAbundant n =
   Set.null (Set.intersection (Set.fromList eligibleAbundant) (Set.fromList possibilities))
