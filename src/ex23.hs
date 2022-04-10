@@ -1,19 +1,20 @@
 import Data.Set (Set)
+import Data.List
 import qualified Data.Set as Set
 
-isDividedBy num den = (num `mod` den) == 0
-dividesN n = isDividedBy n
-properDivisors n = filter (dividesN n) [1..(n-1)]
+divisorPair den num = if (num `mod` den) == 0 then (nub [den, num `div` den]) else []
+properDivisors n = filter (\x -> x /= n) (concat (map (\x -> divisorPair x n) [1..((floor . sqrt . fromIntegral) n)]))
 properDivisorSum n = (sum . properDivisors) n
 isAbundant n = n < properDivisorSum n
 
-isNotSumOfTwoAbundant n =
+isNotSumOfTwoAbundant n abundantNums =
   Set.null (Set.intersection (Set.fromList eligibleAbundant) (Set.fromList possibilities))
   where
-    allAbundant = filter isAbundant [1..]
-    eligibleAbundant = takeWhile (< n) allAbundant
-    possibilities = map (\x -> n - x) eligibleAbundant
+    eligibleAbundant = takeWhile (\x -> x < n && x > 0) abundantNums
+    possibilities = filter (\x -> x > 0 && x /= n) (map (\x -> n - x) eligibleAbundant)
 
 main = do
-  let sums = sum (filter isNotSumOfTwoAbundant [1..28123])
-  print(sums)
+  let n = 28123
+  let abundantNums = filter isAbundant [1..n]
+  let notSumOfTwoAbundant = filter (\x -> isNotSumOfTwoAbundant x abundantNums) [1..n]
+  print (sum notSumOfTwoAbundant)
