@@ -1,3 +1,6 @@
+#!/usr/bin/env stack
+-- stack --resolver lts-16.21 script --package containers
+-- https://www.fpcomplete.com/haskell/tutorial/stack-script/
 import Data.Set (Set)
 import Data.List
 import qualified Data.Set as Set
